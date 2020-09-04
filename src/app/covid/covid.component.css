@@ -10,7 +10,9 @@
 .critc{
     color: orange;
 }
-
+.critical{
+    color: rgb(216, 140, 0);
+}
 .wrapper{
     width: 80%;
     margin: 0px auto;
@@ -26,4 +28,29 @@
     font-weight: 600;
     background-color: #f3f3f3;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.container{
+    background-color:  #f3f3f3;
+}
+.cases{
+    font-size: 2.2em;
+}
+.clable{
+    color: grey;
+}
+.facts{
+    border: .5px solid black;
+    box-shadow: 2px 2px 4px 0px;
+    border-radius: 6%;
+}
+
+
+@media screen and (max-width:768px){
+    .wrapper{
+        width: 90%;
+        margin: 0px auto;
+    }
+    hr{
+        font-size: 1.5rem;
+    }
 }

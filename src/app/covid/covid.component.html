@@ -5,6 +5,7 @@
     <title>Document</title>
 </head>
 <body class="body-custom" > 
+    
     <!-- Corona Update Overall -->
     <div class="container-fluid">
         <div class="text-center wrapper">
@@ -12,7 +13,7 @@
         </div>
         <div class="row wrapper">
             <!-- Table -->
-            <div class="col-lg-12 ">
+            <div class="col-lg-8 ">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark text-uppercase">
@@ -44,12 +45,35 @@
             </div>
 
             <!-- Facts -->
-            <!-- <div class="col-lg-4">
-                <h4 class="text-center">
-                    Summary
-                </h4>
-
-            </div> -->
+            <div class="col-lg-4 text-center">
+                <div class="facts">
+                    <h4 class="text-center mt-4 mb-2">
+                        World's COVID-19 Summary
+                    </h4>
+                    
+                    <div class="mt-4">
+                       <span class="total-confirm cases"> {{maxCase}} </span>
+                        <div class="clable">Total Cases</div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="confirm cases">{{acvtiveCases}}</span>
+                        <div class="clable">Total Active</div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="critc cases">{{recoverCases}}</span>
+                        <div class="clable">Total Recovered</div>
+                    </div>
+                    <div class="mt-4 mb-4">
+                        <span class="critical cases">{{critical}}</span>
+                        <div class="clable">Critical Cases</div>
+                    </div> 
+                    <div class="mt-4 mb-4">
+                        <span class="deceased cases">{{deceasedCases}}</span>
+                        <div class="clable">Total Deaths</div>
+                    </div>  
+                                         
+                </div>
+            </div>
         </div>
     </div>
     
@@ -58,7 +82,7 @@
     <div class="container">
 
         
-        <h4 class="text-center mb-2 mt-2">Bar Chart</h4>
+        <h4 class="text-center mb-2 mt-4">Bar Chart</h4>
         <div class="chart">
         <canvas baseChart
                 [datasets]="countryData"
