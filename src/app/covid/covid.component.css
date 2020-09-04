@@ -1,0 +1,29 @@
+.confirm{
+    color: #00bb00;
+}
+.total-confirm{
+    color: #487700
+}
+.deceased{
+    color: red;
+}
+.critc{
+    color: orange;
+}
+
+.wrapper{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.box-summary{
+    border: 1px solid grey;
+}
+.flags{
+    width: 5%;
+}
+.body-custom{
+    font-weight: 600;
+    background-color: #f3f3f3;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
