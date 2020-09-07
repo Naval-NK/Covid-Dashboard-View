@@ -4,110 +4,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body class="body-custom" > 
-    
-    <!-- Corona Update Overall -->
-    <div class="container-fluid">
-        <div class="text-center wrapper">
-            <h2 class="">World's 10 Countries Corona Update</h2>
-        </div>
-        <div class="row wrapper">
-            <!-- Table -->
-            <div class="col-lg-8 ">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark text-uppercase">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Total Cases</th>
-                            <th scope="col">Total Recovered</th>
-                            <th scope="col">Critical Cases</th>
-                            <th scope="col">Total Deaths</th>
-                            <th scope="col">Cases Per Million</th>
-                            <th scope="col">Flag</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor = "let covid of covidData ; index as i;">
-                            <th scope="row">{{i+1}}</th>
-                            <td>{{covid.country}}</td>
-                            <td class="total-confirm">{{covid.total_cases}}</td>
-                            <td class="confirm">{{covid.total_recovered}}</td>
-                            <td class="critc">{{covid.serious_critical}}</td>
-                            <td class="deceased">{{covid.total_deaths}}</td>
-                            <td class="confirm">{{covid.cases_per_mill_pop}}</td>
-                            <td class="flags" scope="row"><img class=" img-fluid" [src]="covid.flag"/></td>
-                        </tr>
-                        </tbody>
-                    </table>
+<body> 
+    <div class="text-center wrapper mt-3 mb-3">
+        <h2 class="">World's 10 Countries Corona Update</h2>
+    </div>
+
+    <div class="body-custom">    
+        <!-- Corona Update Overall -->
+        <div class="container-fluid">
+            
+            <div class="row wrapper">
+                <!-- Table -->
+                <div class="col-lg-8 ">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark text-uppercase">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Total Cases</th>
+                                <th scope="col">Total Recovered</th>
+                                <th scope="col">Critical Cases</th>
+                                <th scope="col">Total Deaths</th>
+                                <th scope="col">Cases Per Million</th>
+                                <th scope="col">Flag</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor = "let covid of covidData ; index as i;">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{covid.country}}</td>
+                                <td class="total-confirm">{{covid.total_cases}}</td>
+                                <td class="confirm">{{covid.total_recovered}}</td>
+                                <td class="critc">{{covid.serious_critical}}</td>
+                                <td class="deceased">{{covid.total_deaths}}</td>
+                                <td class="confirm">{{covid.cases_per_mill_pop}}</td>
+                                <td class="flags" scope="row"><img class=" img-fluid" [src]="covid.flag"/></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Facts -->
+                <div class="col-lg-4 text-center">
+                    <div class="facts">
+                        <h4 class="text-center mt-4 mb-2">
+                            World's COVID-19 Summary
+                        </h4>
+                        
+                        <div class="mt-4">
+                        <span class="total-confirm cases"> {{maxCase}} </span>
+                            <div class="clable">Total Cases</div>
+                        </div>
+                        <div class="mt-4">
+                            <span class="confirm cases">{{acvtiveCases}}</span>
+                            <div class="clable">Total Active</div>
+                        </div>
+                        <div class="mt-4">
+                            <span class="critc cases">{{recoverCases}}</span>
+                            <div class="clable">Total Recovered</div>
+                        </div>
+                        <div class="mt-4 mb-4">
+                            <span class="critical cases">{{critical}}</span>
+                            <div class="clable">Critical Cases</div>
+                        </div> 
+                        <div class="mt-4 mb-4">
+                            <span class="deceased cases">{{deceasedCases}}</span>
+                            <div class="clable">Total Deaths</div>
+                        </div>  
+                                            
+                    </div>
                 </div>
             </div>
+        </div>
+        
 
-            <!-- Facts -->
-            <div class="col-lg-4 text-center">
-                <div class="facts">
-                    <h4 class="text-center mt-4 mb-2">
-                        World's COVID-19 Summary
-                    </h4>
-                    
-                    <div class="mt-4">
-                       <span class="total-confirm cases"> {{maxCase}} </span>
-                        <div class="clable">Total Cases</div>
+        <!-- Bar Chart & Pie Chart-->
+        <div class="container-fluid">
+
+            <div class="row mt-4 mb-2">
+                <div class="col-lg-6">
+                    <div class="chart alig">
+                        <h4 class="text-center mb-2 mt-4">Bar Chart</h4>
+                        <canvas baseChart
+                                [datasets]="countryData"
+                                [labels]="countryLabel"
+                                [options]="barChartOptions"
+                                [legend]="barChartLegend"
+                                [chartType]="barChartType">
+                        </canvas>
                     </div>
-                    <div class="mt-4">
-                        <span class="confirm cases">{{acvtiveCases}}</span>
-                        <div class="clable">Total Active</div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="chart">
+                        <h4 class="text-center mb-2 mt-4">Pie Chart</h4>
+                        <canvas baseChart
+                                [data]="pieChartData"
+                                [options]="pieChartOptions"
+                                [labels]="pieChartLabels"
+                                [chartType]="pieChartType">
+                        </canvas>
                     </div>
-                    <div class="mt-4">
-                        <span class="critc cases">{{recoverCases}}</span>
-                        <div class="clable">Total Recovered</div>
-                    </div>
-                    <div class="mt-4 mb-4">
-                        <span class="critical cases">{{critical}}</span>
-                        <div class="clable">Critical Cases</div>
-                    </div> 
-                    <div class="mt-4 mb-4">
-                        <span class="deceased cases">{{deceasedCases}}</span>
-                        <div class="clable">Total Deaths</div>
-                    </div>  
-                                         
                 </div>
             </div>
+            
+            
+            
+            
         </div>
     </div>
-    
-
-    <!-- Bar Chart -->
-    <div class="container">
-
-        
-        <h4 class="text-center mb-2 mt-4">Bar Chart</h4>
-        <div class="chart">
-        <canvas baseChart
-                [datasets]="countryData"
-                [labels]="countryLabel"
-                [options]="barChartOptions"
-                [legend]="barChartLegend"
-                [chartType]="barChartType">
-        </canvas>
-        </div>
-        
-        <div class="chart">
-            <h4>Pie Chart</h4>
-            <div id="pie" style="display: none">
-                <canvas baseChart
-                        [data]="pieChartData"
-                        [labels]="pieChartLabels"
-                        [chartType]="pieChartType">
-                </canvas>
-              </div>
-        </div>
-    </div>
-    
 </body>
 </html>
-
-<!-- <button id="show" (click)="getTopTenOnly()" class="btn btn-outline-info">
-    Show Chart Top10
-</button> -->

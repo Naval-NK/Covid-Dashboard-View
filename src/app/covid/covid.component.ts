@@ -72,8 +72,12 @@ export class CovidComponent implements OnInit {
     ];
   
   // Pie Chart Code
-  public pieChartLabels = ['Total' , 'Recovered' ];
-  public pieChartData = [ this.maxCase,this.recoverCases  ];
+  public pieChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public pieChartLabels = ['Total','Recoverd','Active','Deaths', ];
+  public pieChartData = [ 4525103,1703742,2518010,303351];
   public pieChartType = 'pie';
 
   // Splits string into array and then each element will be check if its comma then will be replaced with
@@ -83,11 +87,7 @@ export class CovidComponent implements OnInit {
     result =  str.split('').map(s =>{return s === ','? "": s;}).join('');
     return Number.parseInt(result);
   }
-  showChart(){
-    console.log(this.maxCase + " " + this.recoverCases);
-    
-    document.getElementById("pie").style.display = "block";
-  }
+  
   
   numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
