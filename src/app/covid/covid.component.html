@@ -92,6 +92,19 @@
                 [chartType]="barChartType">
         </canvas>
         </div>
+        <button class="btn btn-lg" (click)="showChart()">
+            pie
+        </button>
+        <div class="chart">
+            <h4>Pie Chart</h4>
+            <div id="pie" style="display: none">
+                <canvas baseChart
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="pieChartType">
+                </canvas>
+              </div>
+        </div>
     </div>
     
 </body>

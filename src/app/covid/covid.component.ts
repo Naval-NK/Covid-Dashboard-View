@@ -57,7 +57,7 @@ export class CovidComponent implements OnInit {
       }, 
     );    
   }
-  // Chart Code
+  // Bar Chart Code
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -70,6 +70,11 @@ export class CovidComponent implements OnInit {
       { data : this.recovered , label : "Recovered Case"},
       { data : this.deceased , label : "Deaths Case"}
     ];
+  
+  // Pie Chart Code
+  public pieChartLabels = ['Total' , 'Recovered' ];
+  public pieChartData = [ this.maxCase,this.recoverCases  ];
+  public pieChartType = 'pie';
 
   // Splits string into array and then each element will be check if its comma then will be replaced with
   // empty or element will be return after all loop of map Join will again make a whole string
@@ -77,6 +82,11 @@ export class CovidComponent implements OnInit {
     var result = '';
     result =  str.split('').map(s =>{return s === ','? "": s;}).join('');
     return Number.parseInt(result);
+  }
+  showChart(){
+    console.log(this.maxCase + " " + this.recoverCases);
+    
+    document.getElementById("pie").style.display = "block";
   }
   
   numberWithCommas(x) {
